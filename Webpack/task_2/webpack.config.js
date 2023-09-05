@@ -10,7 +10,7 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/, // This rule will match .css files
-                use: ['style-loader', 'css-loader'],
+                use: ['style-loader', 'css-loader', 'image-webpack-loader'],
             },
             {
                 test: /\.(png|jpg|jpeg|gif|svg)$/, // This rule will match image files
