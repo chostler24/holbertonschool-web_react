@@ -32,6 +32,11 @@ module.exports = {
             },
         ],
     },
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'), // Set the base directory for serving files
+        port: 8564, // Specify the port (you can use any available port)
+        open: true, // Automatically open the default web browser
+    },
     plugins: [
         new HtmlWebpackPlugin({ template: './public/index.html' }),
         new CleanWebpackPlugin()
