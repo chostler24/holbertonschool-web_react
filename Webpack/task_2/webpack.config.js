@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+    mode: 'production',
     entry: './js/dashboard_main.js', // Adjust the entry point as needed
     output: {
         filename: 'bundle.js',
