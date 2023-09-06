@@ -15,15 +15,15 @@ function App() {
         <p>
           Login to access the full dashboard
         </p>
-        <form id='Login-form'>
-          <div id='email'>
-            <label for="email">Email:</label>
-            <input type="email" name="email"></input>
-          </div>
-          <div id='password'>
-            <label for="password">Password:</label>
-            <input type="password" name="password"></input>
-          </div>
+        <form>
+          <label htmlFor="email">
+            Email:
+            <input type="email" id="email" name="email"></input>
+          </label>
+          <label htmlFor="password">
+            Password:
+            <input type="password" id="password" name="password"></input>
+          </label>
           <button type="submit">OK</button>
         </form>
       </body>

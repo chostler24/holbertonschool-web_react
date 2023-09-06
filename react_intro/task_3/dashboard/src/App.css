@@ -31,14 +31,12 @@
 	font-style: italic;
 }
 
-.Login-form {
-	display: flex;
+#email {
+	margin-left: .5rem;
+	margin-right: .5rem;
 }
 
-.email {
-	display: flex;
-}
-
-.password {
-	display: flex;
+#password {
+	margin-left: .5rem;
+	margin-right: .5rem;
 }
