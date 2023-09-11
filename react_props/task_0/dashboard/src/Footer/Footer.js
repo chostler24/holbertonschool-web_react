@@ -2,7 +2,7 @@ import './App.css';
 import { getFooterCopy, getFullYear } from './utils.js';
 
 
-function App() {
+function Footer() {
     return (
       <div className="App">
         <footer className="App-footer">
@@ -14,4 +14,4 @@ function App() {
     );
 }
 
-export default App;
+export default Footer;
