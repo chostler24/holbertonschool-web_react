@@ -23,19 +23,23 @@ const listCourses = [
   { id: 3, name: 'React', credit: 40 },
 ];
 
-const App = ({ isLoggedIn }) => {
-  return (
-    <>
-      <div className='header'>
-        <Notifications listNotifications={listNotifications} />
-        <Header />
-      </div>
-      <div className='App-body'>
-        {isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
-      </div>
-      <Footer />
-    </>
-  );
+class App extends Component {
+  render() {
+    const { isLoggedIn } = this.props;
+
+    return (
+      <>
+        <div className='header'>
+          <Notifications listNotifications={listNotifications} />
+          <Header />
+        </div>
+        <div className='App-body'>
+          {isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
+        </div>
+        <Footer />
+      </>
+    );
+  }
 }
 
 App.propTypes = {
