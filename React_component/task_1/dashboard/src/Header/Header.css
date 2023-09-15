@@ -1,0 +1,15 @@
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  font-size: calc(10px + 2vmin);
+  display: flex;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+h1.title {
+  color: rgb(224,53,75);
+}
