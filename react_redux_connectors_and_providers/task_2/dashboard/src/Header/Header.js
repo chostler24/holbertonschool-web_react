@@ -2,6 +2,7 @@ import logo from '../assets/logo.jpg';
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import AppContext from '../App/AppContext';
+import { logout } from '../actions';
 
 // Define the Header component as a class component
 class Header extends React.Component {
@@ -12,19 +13,19 @@ class Header extends React.Component {
 
     return (
       <div className={`App-header ${css(styles.appHeader)}`}>
-        {/* Display the logo */}
-        <img src={logo} className={`App-logo ${css(styles.appLogo)}`} alt="logo" />
+      {/* Display the logo */}
+      <img src={logo} className={`App-logo ${css(styles.appLogo)}`} alt="logo" />
 
-        {/* Display the title */}
-        <h1 className={`title ${css(styles.title)}`}>School dashboard</h1>
+      {/* Display the title */}
+      <h1 className={`title ${css(styles.title)}`}>School dashboard</h1>
 
-        {/* Conditionally display a logout section if the user is logged in */}
-        {user.isLoggedIn && (
-          <div id="logoutSection">
-            Welcome {user.email} (<a href="#" onClick={logOut}>logout</a>)
-          </div>
-        )}
-      </div>
+      {/* Conditionally display a logout section if the user is logged in */}
+      {user.isLoggedIn && (
+        <div id="logoutSection">
+          Welcome {user.email} (<a href="#" onClick={logout}>logout</a>)
+        </div>
+      )}
+    </div>
     );
   };
 };

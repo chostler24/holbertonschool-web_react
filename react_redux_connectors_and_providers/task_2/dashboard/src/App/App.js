@@ -11,6 +11,7 @@ import CourseList from '../CourseList/CourseList';
 import BodySection from '../BodySection/BodySection';
 import AppContext from './AppContext';
 import { displayNotificationDrawer, hideNotificationDrawer } from '../actions';
+import { loginRequest } from '../actions';
 
 // Create an array of course information
 const listCourses = [
@@ -102,10 +103,11 @@ class App extends React.Component {
     });
   };
 
-  mapStateToProps = (state) => {
+  mapDispatchToProps = () => {
     return {
-      isLoggedIn: isLoggedIn(state),
-      displayDrawer: state.isNotificationDrawerVisible, // Map isNotificationDrawerVisible from the state
+    displayNotificationDrawer,
+    hideNotificationDrawer,
+    login: loginRequest, // Map login to the loginRequest action creator
     };
   };
 
