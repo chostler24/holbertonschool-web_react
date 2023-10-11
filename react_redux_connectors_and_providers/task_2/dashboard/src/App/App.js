@@ -10,6 +10,7 @@ import Footer from '../Footer/Footer';
 import CourseList from '../CourseList/CourseList';
 import BodySection from '../BodySection/BodySection';
 import AppContext from './AppContext';
+import { displayNotificationDrawer, hideNotificationDrawer } from '../actions';
 
 // Create an array of course information
 const listCourses = [
@@ -37,10 +38,10 @@ class App extends React.Component {
         { id: 3, type: 'urgent', value: undefined, html: { __html: '<strong>Urgent requirement</strong> - complete by EOD' }},
       ]
     };
-    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
-    this.handleHideDrawer = this.handleHideDrawer.bind(this);
-    this.logIn = this.logIn.bind(this);
-    this.logOut = this.logOut.bind(this);
+    // this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
+    // this.handleHideDrawer = this.handleHideDrawer.bind(this);
+    // this.logIn = this.logIn.bind(this);
+    // this.logOut = this.logOut.bind(this);
   };
 
   // Lifecycle method: Called after the component is mounted
@@ -63,14 +64,14 @@ class App extends React.Component {
   };
 
   // Event handler to display the notification drawer
-  handleDisplayDrawer = () => {
-    this.setState({ displayDrawer: true });
-  };
+  // handleDisplayDrawer = () => {
+  //   this.setState({ displayDrawer: true });
+  // };
 
   // Event handler to hide the notification drawer
-  handleHideDrawer = () => {
-    this.setState({ displayDrawer: false });
-  };
+  // handleHideDrawer = () => {
+  //   this.setState({ displayDrawer: false });
+  // };
 
   // Function to log in the user
   logIn = (email, password) => {
@@ -104,12 +105,25 @@ class App extends React.Component {
   mapStateToProps = (state) => {
     return {
       isLoggedIn: isLoggedIn(state),
+      displayDrawer: state.isNotificationDrawerVisible, // Map isNotificationDrawerVisible from the state
+    };
+  };
+
+  mapDispatchToProps = () => {
+    return {
+    displayNotificationDrawer,
+    hideNotificationDrawer,
     };
   };
 
   // Render method to display the main App component
   render() {
     const { displayDrawer, user, logIn, logOut, listNotifications } = this.state;
+    const {
+      displayNotificationDrawer, // Use the function from props
+      hideNotificationDrawer,    // Use the function from props
+    } = this.props;
+
     return (
       <AppContext.Provider value={{ user, logOut }}>
         <>
@@ -120,14 +134,16 @@ class App extends React.Component {
               displayDrawer={displayDrawer}
               handleDisplayDrawer={this.handleDisplayDrawer}
               handleHideDrawer={this.handleHideDrawer}
-              markAsRead={this.markNotificationAsRead} // Pass a function to mark a notification as read
+              markAsRead={this.markNotificationAsRead}
+              displayNotificationDrawer={displayNotificationDrawer} // Pass the function from props
+              hideNotificationDrawer={hideNotificationDrawer}       // Pass the function from props
             />
             {/* Render the Header component */}
             <Header />
           </div>
           <div className={`App-body ${css(styles.body)}`}>
             {/* Conditionally render the CourseList or Login component based on user's login state */}
-            {user.isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login logIn={logIn} />}
+            {this.props.isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login logIn={logIn} />}
             <BodySection title='News from the School'>
             </BodySection>
           </div>
