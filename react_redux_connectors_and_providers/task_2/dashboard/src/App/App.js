@@ -10,8 +10,8 @@ import Footer from '../Footer/Footer';
 import CourseList from '../CourseList/CourseList';
 import BodySection from '../BodySection/BodySection';
 import AppContext from './AppContext';
-import { displayNotificationDrawer, hideNotificationDrawer } from '../actions';
-import { loginRequest } from '../actions';
+import { displayNotificationDrawer, hideNotificationDrawer } from '../actions/uiActionCreators';
+import { loginRequest } from '../actions/uiActionCreators';
 
 // Create an array of course information
 const listCourses = [
