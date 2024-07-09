@@ -1,1 +1,1 @@
-Holberton Schhol Repo for Web React projects
+Holberton School Repo for Web React projects
